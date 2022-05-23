@@ -47,11 +47,11 @@ function createTimeOutEvent(employeeRecord, timeDateString){
 
 function hoursWorkedOnDate(employeeRecord, dateString) {
     const timeIn = employeeRecord.timeInEvents.find(e => {
-        return e.date === dateString.date
+        return e.date === dateString
     }).hour
 
     const timeOut = employeeRecord.timeOutEvents.find(e => {
-        return e.date === dateString.date
+        return e.date === dateString
     }).hour
     return (timeOut - timeIn) / 100
 }
@@ -64,7 +64,7 @@ function wagesEarnedOnDate(employeeRecord, dateString) {
 
 function allWagesFor(employeeRecord) {
     let totalPay = 0;
-    for(let i = 0; i < employeeRecord.timeInEvents.length; i++) {
+    for (let i = 0; i < employeeRecord.timeInEvents.length; i++) {
         totalPay += wagesEarnedOnDate(employeeRecord, employeeRecord.timeInEvents[i])
     }    
     console.log("TOTALPAY: " + totalPay)
